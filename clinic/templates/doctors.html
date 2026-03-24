@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Doctors</h3>
+
+<a href="/doctor-add/" class="btn btn-primary">Add Doctor</a>
+
+<table class="table mt-3">
+
+<tr>
+<th>Name</th>
+<th>Specialization</th>
+<th>Phone</th>
+<th>Action</th>
+</tr>
+
+{% for d in doctors %}
+<tr>
+<td>{{ d.name }}</td>
+<td>{{ d.specialization }}</td>
+<td>{{ d.phone }}</td>
+
+<td>
+<a href="/doctor-edit/{{d.id}}" class="btn btn-warning">Edit</a>
+<a href="/doctor-delete/{{d.id}}" class="btn btn-danger">Delete</a>
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
